@@ -2,7 +2,7 @@
 
 ;;configure ----- python -----
 (load-file "~/.emacs.d/emacs-for-python/epy-init.el")
-(add-to-list 'load-path "path/to/emacs-for-python/") ;; tell where to load the various files
+(add-to-list 'load-path "~/.emacs.d/emacs-for-python/") ;; tell where to load the various files
 (require 'epy-setup)      ;; It will setup other loads, it is required!
 (require 'epy-python)     ;; If you want the python facilities [optional]
 (require 'epy-completion) ;; If you want the autocompletion settings [optional]
@@ -10,18 +10,19 @@
 (require 'epy-bindings)   ;; For my suggested keybindings [optional]
 (require 'epy-nose)       ;; For nose integration
 ;;configure the flymake checker
-(epy-setup-ipython "pyflakes %f")
+(epy-setup-checker "pyflakes %f")
 ;;adding the django snippets
 (epy-django-snippets)
 ;;ipython intergration
 (epy-setup-ipython)
 ;;line highlighting
-(global-hl-line-mode t)
-(set-face-background 'hl-line "black");;change the color that you like
+;;(global-hl-line-mode t)
+;;(set-face-background 'hl-line "#eedd82");;change the color that you like
                                       ;;for a list of colors: http://raebear.net/comp/emacscolors.html
 (require 'highlight-indentation)
-(require 'python-mode-hook 'highlight-indentation)
+(add-hook 'python-mode-hook 'highlight-indentation)
 
+;;(setq skeleton-pair nil);;disable the auto-pairing of parenthesis
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
