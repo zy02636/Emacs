@@ -1,1 +1,1 @@
-This is my emacs configure file.
+Emacs config repository
